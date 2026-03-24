@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>IT Hangman Quiz - Programming Languages</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div class="landing-page" id="landingPage">
+        <div class="landing-content">
+            <h1 class="landing-title">IT HANGMAN QUIZ</h1>
+            <p class="landing-subtitle">Test your programming language knowledge!</p>
+            <p class="landing-description">Choose a programming language to start your quiz challenge</p>
+            
+            <div class="programming-languages">
+                <button class="programming-card" data-lang="python">
+                    <div class="card-icon">🐍</div>
+                    <div class="card-name">Python</div>
+                    <div class="card-desc">Beginner-friendly, AI, Data Science</div>
+                </button>
+                <button class="programming-card" data-lang="javascript">
+                    <div class="card-icon">🌐</div>
+                    <div class="card-name">JavaScript</div>
+                    <div class="card-desc">Web Development, Frontend, Backend</div>
+                </button>
+                <button class="programming-card" data-lang="java">
+                    <div class="card-icon">☕</div>
+                    <div class="card-name">Java</div>
+                    <div class="card-desc">Enterprise, Android, Backend</div>
+                </button>
+                <button class="programming-card" data-lang="cpp">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-name">C++</div>
+                    <div class="card-desc">Games, Systems, Performance</div>
+                </button>
+                <button class="programming-card" data-lang="csharp">
+                    <div class="card-icon">🎮</div>
+                    <div class="card-name">C#</div>
+                    <div class="card-desc">Game Development, .NET, Windows</div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div class="game-container" id="gameContainer" style="display: none;">
+        <!-- Back Button -->
+        <button class="back-button" id="backButton">
+            ← Back to Languages
+        </button>
+
+        <h1 id="gameTitle">IT HANGMAN QUIZ</h1>
+        <p class="subtitle" id="gameSubtitle">Test your knowledge!</p>
+
+        <div class="selected-language-info" id="selectedLanguageInfo">
+            <span class="lang-badge" id="currentLangIcon">🐍</span>
+            <span class="lang-badge-text" id="currentLangName">Python</span>
+        </div>
+
+        <div class="level-section">
+            <span class="level-badge" id="currentLevel">Level 1</span>
+            <select class="level-selector" id="levelSelector">
+                <option value="1">⭐ Easy - Basic Concepts</option>
+                <option value="2">⭐⭐ Medium - Core Features</option>
+                <option value="3">⭐⭐⭐ Hard - Advanced Topics</option>
+                <option value="4">⭐⭐⭐⭐ Expert - Expert Level</option>
+            </select>
+        </div>
+
+        <div class="hangman-container">
+            <div class="hangman-svg" id="hangmanDraw">
+                <svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMid meet">
+                    <!-- Base -->
+                    <line x1="40" y1="240" x2="160" y2="240" class="stroke"/>
+                    <line x1="100" y1="240" x2="100" y2="40" class="stroke"/>
+                    <line x1="100" y1="40" x2="140" y2="40" class="stroke"/>
+                    <line x1="140" y1="40" x2="140" y2="70" class="stroke"/>
+                    
+                    <!-- Head -->
+                    <circle id="head" cx="140" cy="90" r="20" class="stroke" fill="none" style="display: none;"/>
+                    
+                    <!-- Body -->
+                    <line id="body" x1="140" y1="110" x2="140" y2="170" class="stroke" style="display: none;"/>
+                    
+                    <!-- Arms -->
+                    <line id="leftArm" x1="140" y1="130" x2="120" y2="150" class="stroke" style="display: none;"/>
+                    <line id="rightArm" x1="140" y1="130" x2="160" y2="150" class="stroke" style="display: none;"/>
+                    
+                    <!-- Legs -->
+                    <line id="leftLeg" x1="140" y1="170" x2="120" y2="200" class="stroke" style="display: none;"/>
+                    <line id="rightLeg" x1="140" y1="170" x2="160" y2="200" class="stroke" style="display: none;"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="question-section">
+            <div class="question-text" id="question"></div>
+            <div class="hint-text" id="hint"></div>
+        </div>
+
+        <div class="word-display" id="wordDisplay"></div>
+
+        <div class="keyboard" id="keyboard"></div>
+
+        <div class="game-info">
+            <div class="attempts">❌ Wrong Attempts: <span id="wrongAttempts">0</span>/6</div>
+            <div class="score">🏆 Score: <span id="score">0</span></div>
+        </div>
+
+        <div class="message-box" id="messageBox"></div>
+        <div id="levelComplete" class="level-complete" style="display: none;"></div>
+
+        <button class="new-game-btn" id="newGameBtn">🔄 New Game</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
