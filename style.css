@@ -1,0 +1,994 @@
+/* ========================================
+   CODEBOOKS E-COMMERCE - PURPLE THEME
+   style.css - Main Stylesheet
+   ======================================== */
+
+/* ---------- RESET & GLOBAL ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f5f2ff;
+    color: #1e0a3c;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    background: #1a0a2e;
+    color: #e0d4ff;
+}
+
+body.dark-mode .app-wrapper {
+    background: #1e0e36;
+}
+
+body.dark-mode .ebook-card,
+body.dark-mode .cart-item-list,
+body.dark-mode .settings-panel,
+body.dark-mode .featured-card,
+body.dark-mode .checkout-modal {
+    background: #2d1b4e;
+    border-color: #4a2e7a;
+}
+
+body.dark-mode .ebook-title,
+body.dark-mode .section-header h4,
+body.dark-mode .cart-item-title {
+    color: #e0d4ff;
+}
+
+body.dark-mode .price {
+    color: #c4a8ff;
+}
+
+body.dark-mode .add-btn {
+    background: #4a2e7a;
+    color: #c4a8ff;
+}
+
+body.dark-mode .add-btn:hover {
+    background: #7e3af2;
+    color: white;
+}
+
+body.dark-mode .chip {
+    background: #2d1b4e;
+    color: #c4a8ff;
+    border-color: #4a2e7a;
+}
+
+body.dark-mode .chip.active {
+    background: #7e3af2;
+    color: white;
+}
+
+body.dark-mode .bottom-nav {
+    background: #1e0e36;
+    border-top-color: #4a2e7a;
+}
+
+body.dark-mode .nav-item {
+    color: #7a5fa5;
+}
+
+body.dark-mode .nav-item.active {
+    color: #9f6aff;
+}
+
+body.dark-mode .promo-banner {
+    background: linear-gradient(135deg, #5a1eb8, #8b4aff);
+}
+
+body.dark-mode .cart-badge {
+    background: #9f6aff;
+}
+
+body.dark-mode .checkout-btn {
+    background: #9f6aff;
+}
+
+body.dark-mode .checkout-btn:hover {
+    background: #b28aff;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+    background: #2d1b4e;
+    border-color: #4a2e7a;
+    color: #e0d4ff;
+}
+
+body.dark-mode input::placeholder {
+    color: #7a5fa5;
+}
+
+/* Font Size Classes */
+body.font-small {
+    font-size: 12px;
+}
+
+body.font-medium {
+    font-size: 14px;
+}
+
+body.font-large {
+    font-size: 16px;
+}
+
+body.font-small .ebook-title { font-size: 0.95rem; }
+body.font-medium .ebook-title { font-size: 1.1rem; }
+body.font-large .ebook-title { font-size: 1.25rem; }
+
+body.font-small .price { font-size: 1.1rem; }
+body.font-medium .price { font-size: 1.3rem; }
+body.font-large .price { font-size: 1.5rem; }
+
+/* ---------- APP WRAPPER ---------- */
+.app-wrapper {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    background: #faf8ff;
+    box-shadow: 0 0 40px rgba(106, 13, 173, 0.08);
+    border-radius: 32px 32px 0 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+    transition: background 0.3s ease;
+}
+
+/* ---------- MAIN CONTENT ---------- */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem 1.2rem 90px;
+    scroll-behavior: smooth;
+}
+
+/* ---------- PROMO BANNER ---------- */
+.promo-banner {
+    background: linear-gradient(135deg, #7f3ce0, #9f6aff);
+    padding: 1.2rem 1.5rem;
+    border-radius: 28px;
+    margin-bottom: 2rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 18px 25px -8px #b794f6;
+}
+
+.promo-banner h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.promo-banner p {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+.promo-banner .see-all-link {
+    background: rgba(255,255,255,0.2);
+    padding: 0.4rem 1rem;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+/* ---------- SECTION HEADER ---------- */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0 1rem;
+}
+
+.section-header h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2d0a4e;
+    transition: color 0.3s ease;
+}
+
+.section-header .see-all {
+    color: #9b6bff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background: #ede4ff;
+    padding: 0.3rem 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+body.dark-mode .section-header .see-all {
+    background: #4a2e7a;
+    color: #c4a8ff;
+}
+
+/* ---------- CATEGORY CHIPS ---------- */
+.category-chips {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.chip {
+    background: white;
+    padding: 0.7rem 1.4rem;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 12px #e2d4ff;
+    color: #2f1552;
+    border: 1px solid #e0d0ff;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.chip.active {
+    background: #7e3af2;
+    color: white;
+    border-color: #7e3af2;
+    box-shadow: 0 10px 15px -5px #ad85ff;
+}
+
+/* ---------- FEATURED CARD ---------- */
+.featured-card {
+    background: white;
+    border-radius: 28px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 20px #e6d9ff;
+    transition: background 0.3s ease;
+}
+
+.featured-content {
+    display: flex;
+    gap: 1rem;
+}
+
+.featured-icon {
+    background: #efe5ff;
+    width: 70px;
+    height: 70px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #7e3af2;
+}
+
+.featured-info h3 {
+    font-size: 1.3rem;
+}
+
+.featured-meta {
+    display: flex;
+    gap: 1rem;
+    margin: 0.4rem 0;
+    color: #7659b3;
+}
+
+.featured-price {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #2b0d48;
+}
+
+/* ---------- COURSE GRID (E-BOOK CARDS) ---------- */
+.course-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.ebook-card {
+    background: white;
+    border-radius: 24px;
+    padding: 1.2rem 0.9rem 1rem;
+    box-shadow: 0 15px 25px rgba(128, 70, 234, 0.08);
+    transition: all 0.15s;
+    border: 1px solid #f0e6ff;
+    display: flex;
+    flex-direction: column;
+}
+
+.ebook-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 30px #dacdff;
+}
+
+.card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.6rem;
+    color: #7e3af2;
+    background: #f1eaff;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+}
+
+.ebook-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #22093e;
+    margin-bottom: 0.3rem;
+}
+
+.ebook-meta {
+    display: flex;
+    gap: 0.8rem;
+    font-size: 0.75rem;
+    color: #7a5fa5;
+    font-weight: 500;
+    margin: 0.5rem 0 0.3rem;
+}
+
+.ebook-meta span i {
+    margin-right: 3px;
+    color: #9b6bff;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.price {
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: #2c0c50;
+}
+
+.add-btn {
+    background: #ede4ff;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: #5918df;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 1px solid white;
+}
+
+.add-btn:hover {
+    background: #7e3af2;
+    color: white;
+}
+
+/* ---------- BOTTOM NAVIGATION ---------- */
+.bottom-nav {
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.8rem 1rem 1.2rem;
+    border-top: 2px solid #f0e7ff;
+    box-shadow: 0 -8px 25px rgba(158, 91, 255, 0.1);
+    border-radius: 30px 30px 0 0;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 500px;
+    z-index: 1000;
+    transition: background 0.3s ease;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #a28fc0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-item i {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+}
+
+.nav-item.active {
+    color: #7e3af2;
+}
+
+.nav-item span {
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* ---------- CART STYLING ---------- */
+.cart-item-list {
+    background: #f3ebff;
+    border-radius: 24px;
+    padding: 1rem;
+    margin: 1.5rem 0 0.5rem;
+    transition: background 0.3s ease;
+}
+
+.cart-badge {
+    background: #7e3af2;
+    color: white;
+    border-radius: 30px;
+    padding: 0.2rem 1rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-bottom: 0.8rem;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px dashed #cebef0;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-title {
+    font-weight: 500;
+    color: #2d0a4e;
+}
+
+.cart-item-price {
+    font-weight: 600;
+    color: #7e3af2;
+}
+
+.remove-item {
+    color: #b28aff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.2s;
+    background: none;
+    border: none;
+}
+
+.remove-item:hover {
+    color: #d14b4b;
+}
+
+.cart-total {
+    font-weight: 800;
+    color: #3f1c73;
+    margin-top: 0.8rem;
+    text-align: right;
+    font-size: 1.1rem;
+}
+
+.empty-cart {
+    text-align: center;
+    color: #a28fc0;
+    padding: 1rem;
+}
+
+/* ---------- CHECKOUT MODAL ---------- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.checkout-modal {
+    background: white;
+    max-width: 400px;
+    width: 90%;
+    border-radius: 32px;
+    padding: 1.8rem;
+    box-shadow: 0 30px 50px rgba(0,0,0,0.2);
+}
+
+.checkout-modal h3 {
+    font-size: 1.5rem;
+    color: #2d0a4e;
+    margin-bottom: 0.5rem;
+}
+
+.checkout-modal p {
+    color: #7a5fa5;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #2d0a4e;
+    margin-bottom: 0.4rem;
+    font-size: 0.85rem;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 0.9rem;
+    border: 1.5px solid #e0d0ff;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    background: #fefcff;
+    transition: 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #7e3af2;
+}
+
+.checkout-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.checkout-buttons button {
+    flex: 1;
+    padding: 0.8rem;
+    border-radius: 40px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+}
+
+.confirm-checkout {
+    background: #7e3af2;
+    color: white;
+}
+
+.cancel-checkout {
+    background: #ede4ff;
+    color: #5918df;
+}
+
+.checkout-btn {
+    background: #7e3af2;
+    border: none;
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 40px;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.checkout-btn:hover {
+    background: #9f6aff;
+}
+
+/* ---------- SETTINGS PANEL ---------- */
+.settings-panel {
+    background: white;
+    border-radius: 30px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    transition: background 0.3s ease;
+}
+
+.settings-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid #ecdaff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.settings-item:last-child {
+    border-bottom: none;
+}
+
+.settings-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 500;
+    color: #2f0f5e;
+}
+
+.settings-label i {
+    font-size: 1.2rem;
+    color: #7e3af2;
+}
+
+/* Font size options */
+.font-options {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.font-option {
+    padding: 0.4rem 1rem;
+    border-radius: 40px;
+    background: #ede4ff;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: 0.2s;
+}
+
+.font-option.active {
+    background: #7e3af2;
+    color: white;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    width: 52px;
+    height: 26px;
+    background: #ccc;
+    border-radius: 26px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-switch.active {
+    background: #7e3af2;
+}
+
+.toggle-slider {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 3px;
+    transition: 0.3s;
+}
+
+.toggle-switch.active .toggle-slider {
+    left: 27px;
+}
+
+/* Order History List */
+.order-list {
+    margin-top: 0.5rem;
+}
+
+.order-item {
+    background: #f3ebff;
+    border-radius: 16px;
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.order-item-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+}
+
+.order-date {
+    font-size: 0.75rem;
+    color: #7a5fa5;
+}
+
+.order-status {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.status-pending {
+    background: #ffd966;
+    color: #664d00;
+}
+
+.status-completed {
+    background: #a5d6a5;
+    color: #1a4d1a;
+}
+
+.order-details {
+    font-size: 0.85rem;
+}
+
+/* About Section */
+.about-content {
+    text-align: center;
+    padding: 1rem;
+}
+
+.about-icon {
+    font-size: 3rem;
+    color: #7e3af2;
+    margin-bottom: 0.5rem;
+}
+
+.about-version {
+    font-size: 0.8rem;
+    color: #7a5fa5;
+    margin-top: 0.5rem;
+}
+
+/* Notification Toast */
+.notif-toast {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3c1c77;
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 60px;
+    font-weight: 500;
+    box-shadow: 0 20px 35px #b28aff;
+    z-index: 99;
+    transition: opacity 0.2s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.notif-toast.show {
+    opacity: 1;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+/* ---------- COLLAPSIBLE ORDER HISTORY ADDITIONS ---------- */
+#orderHistoryToggle:hover {
+    background: rgba(126, 58, 242, 0.1);
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+#orderHistoryContainer {
+    transition: all 0.3s ease;
+}
+
+#orderHistoryList {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+#orderHistoryList::-webkit-scrollbar {
+    width: 4px;
+}
+
+#orderHistoryList::-webkit-scrollbar-track {
+    background: #ede4ff;
+    border-radius: 10px;
+}
+
+#orderHistoryList::-webkit-scrollbar-thumb {
+    background: #7e3af2;
+    border-radius: 10px;
+}
+
+/* Dark mode scrollbar */
+body.dark-mode #orderHistoryList::-webkit-scrollbar-track {
+    background: #4a2e7a;
+}
+
+body.dark-mode #orderHistoryList::-webkit-scrollbar-thumb {
+    background: #9f6aff;
+}
+/* ========================================
+   DARK MODE BUTTON FIXES - para makita ang text
+   ======================================== */
+
+/* Add to cart buttons in dark mode */
+body.dark-mode .add-btn {
+    background: #4a2e7a;
+    color: #e0d4ff;
+    border: 1px solid #6b46b0;
+}
+
+body.dark-mode .add-btn:hover {
+    background: #7e3af2;
+    color: white;
+}
+
+/* Quantity buttons (- / +) in dark mode */
+body.dark-mode .remove-item {
+    background: #4a2e7a !important;
+    color: #e0d4ff !important;
+}
+
+body.dark-mode .remove-item:hover {
+    background: #7e3af2 !important;
+    color: white !important;
+}
+
+/* Checkout button in dark mode */
+body.dark-mode .checkout-btn {
+    background: #7e3af2;
+    color: white;
+}
+
+body.dark-mode .checkout-btn:hover {
+    background: #9f6aff;
+}
+
+/* Clear cart button in dark mode */
+body.dark-mode .clear-cart {
+    background: #4a2e7a;
+    border-color: #6b46b0;
+    color: #e0d4ff;
+}
+
+body.dark-mode .clear-cart:hover {
+    background: #7e3af2;
+    color: white;
+}
+
+/* Cart badge in dark mode */
+body.dark-mode .cart-badge {
+    background: #7e3af2;
+    color: white;
+}
+
+/* See all links in dark mode */
+body.dark-mode .section-header .see-all {
+    background: #4a2e7a;
+    color: #c4a8ff;
+}
+
+/* Font option buttons in dark mode */
+body.dark-mode .font-option {
+    background: #4a2e7a;
+    color: #e0d4ff;
+}
+
+body.dark-mode .font-option.active {
+    background: #7e3af2;
+    color: white;
+}
+
+/* Toggle switch in dark mode */
+body.dark-mode .toggle-switch {
+    background: #4a2e7a;
+}
+
+body.dark-mode .toggle-switch.active {
+    background: #7e3af2;
+}
+
+/* Order item background in dark mode */
+body.dark-mode .order-item {
+    background: #2d1b4e;
+}
+
+/* Back button in dark mode */
+body.dark-mode .section-header a {
+    color: #9f6aff !important;
+}
+
+/* Refresh button in dark mode */
+body.dark-mode #refreshOrdersBtn {
+    background: #4a2e7a;
+    border-color: #6b46b0;
+    color: #e0d4ff;
+}
+
+body.dark-mode #refreshOrdersBtn:hover {
+    background: #7e3af2;
+    color: white;
+}
+
+/* Cart total in dark mode */
+body.dark-mode .cart-total {
+    color: #c4a8ff;
+}
+
+/* Price text in dark mode */
+body.dark-mode .price {
+    color: #c4a8ff;
+}
+
+/* Featured card in dark mode */
+body.dark-mode .featured-card {
+    background: #2d1b4e;
+}
+
+body.dark-mode .featured-price {
+    color: #c4a8ff;
+}
+
+body.dark-mode .featured-meta {
+    color: #a28fc0;
+}
+
+body.dark-mode .featured-icon {
+    background: #4a2e7a;
+    color: #9f6aff;
+}
+
+/* Modal in dark mode */
+body.dark-mode .checkout-modal {
+    background: #2d1b4e;
+}
+
+body.dark-mode .checkout-modal h3 {
+    color: #e0d4ff;
+}
+
+body.dark-mode .form-group label {
+    color: #c4a8ff;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select {
+    background: #1e0e36;
+    border-color: #4a2e7a;
+    color: #e0d4ff;
+}
+
+body.dark-mode .cancel-checkout {
+    background: #4a2e7a;
+    color: #c4a8ff;
+}
+
+body.dark-mode .confirm-checkout {
+    background: #7e3af2;
+    color: white;
+}

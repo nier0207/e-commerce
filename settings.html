@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>CodeBooks · Settings</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <div class="main-content">
+            <!-- HEADER -->
+            <div class="section-header">
+                <h4>⚙️ Settings</h4>
+            </div>
+
+            <div class="settings-panel">
+                <!-- FONT SIZE -->
+                <div class="settings-item">
+                    <div class="settings-label">
+                        <i class="fas fa-text-height"></i>
+                        <span>Font Size</span>
+                    </div>
+                    <div class="font-options">
+                        <span class="font-option" data-size="small">Small</span>
+                        <span class="font-option" data-size="medium">Medium</span>
+                        <span class="font-option" data-size="large">Large</span>
+                    </div>
+                </div>
+
+                <!-- DARK MODE -->
+                <div class="settings-item">
+                    <div class="settings-label">
+                        <i class="fas fa-moon"></i>
+                        <span>Dark Mode</span>
+                    </div>
+                    <div id="darkModeToggle" class="toggle-switch">
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+
+                <!-- CURRENCY -->
+                <div class="settings-item">
+                    <div class="settings-label">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Currency</span>
+                    </div>
+                    <div style="font-weight: 600; color: #7e3af2;">PHP (₱)</div>
+                </div>
+
+                <!-- ORDER HISTORY - BUTTON TO NEW PAGE -->
+                <div class="settings-item">
+                    <div class="settings-label">
+                        <i class="fas fa-history"></i>
+                        <span>Order History</span>
+                    </div>
+                    <a href="order-history.html" class="checkout-btn" style="display: inline-block; width: auto; padding: 0.5rem 1.2rem; margin: 0; text-decoration: none; font-size: 0.85rem;">
+                        <i class="fas fa-eye"></i> View Orders
+                    </a>
+                </div>
+
+                <!-- ABOUT BOOKS -->
+                <div class="settings-item" style="flex-direction: column; align-items: flex-start;">
+                    <div class="settings-label">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About Books</span>
+                    </div>
+                    <div class="about-content" style="width: 100%;">
+                        <div class="about-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h4>CodeBooks</h4>
+                        <p>Your source for programming e-books</p>
+                        <p>📚 9 Programming E-books</p>
+                        <p>🎓 Python | JavaScript | Java | C++ | C# | PHP</p>
+                        <div class="about-version">Version 1.0.0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTTOM NAVIGATION -->
+        <div class="bottom-nav">
+            <a href="index.html" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="shop.html" class="nav-item"><i class="fas fa-book-open"></i><span>Products</span></a>
+            <a href="cart.html" class="nav-item"><i class="fas fa-shopping-cart"></i><span>Cart</span></a>
+            <a href="settings.html" class="nav-item active"><i class="fas fa-sliders-h"></i><span>Setting</span></a>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="globalToast" class="notif-toast"></div>
+
+    <!-- JavaScript Files -->
+    <script src="utils.js"></script>
+    <script src="main.js"></script>
+    <script src="cart.js"></script>
+    <script src="checkout.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>CodeBooks · Cart</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <div class="main-content">
+            <!-- HEADER -->
+            <div class="section-header">
+                <h4>Your Shopping Cart</h4>
+            </div>
+
+            <!-- CART ITEMS -->
+            <div class="cart-item-list">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <span class="cart-badge"><i class="fas fa-shopping-cart"></i> Cart Items</span>
+                    <button class="clear-cart" id="clearCartBtn"><i class="fas fa-trash-alt"></i> Clear all</button>
+                </div>
+                <div id="cartItemsContainer"></div>
+                <div class="cart-total" id="cartTotal">₱0.00</div>
+                <button class="checkout-btn" id="checkoutModalBtn"><i class="fas fa-credit-card"></i> Proceed to Checkout</button>
+            </div>
+
+            <!-- CONTINUE SHOPPING LINK -->
+            <div style="text-align: center; margin-top: 1rem;">
+                <a href="shop.html" style="color: #7e3af2; text-decoration: none;">← Continue Shopping</a>
+            </div>
+        </div>
+
+        <!-- BOTTOM NAVIGATION -->
+        <div class="bottom-nav">
+            <a href="index.html" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="shop.html" class="nav-item"><i class="fas fa-book-open"></i><span>Products</span></a>
+            <a href="cart.html" class="nav-item active"><i class="fas fa-shopping-cart"></i><span>Cart</span></a>
+            <a href="settings.html" class="nav-item"><i class="fas fa-sliders-h"></i><span>Setting</span></a>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div id="checkoutModal" class="modal-overlay">
+        <div class="checkout-modal">
+            <h3>Checkout</h3>
+            <p>Complete your purchase</p>
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="fullName" placeholder="Juan Dela Cruz">
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" id="address" placeholder="123 Street, City, Philippines">
+            </div>
+            <div class="form-group">
+                <label>Payment Method</label>
+                <select id="paymentMethod">
+                    <option value="Credit Card">💳 Credit Card</option>
+                    <option value="GCash">📱 GCash</option>
+                    <option value="PayPal">🌐 PayPal</option>
+                    <option value="Cash on Delivery">💰 Cash on Delivery</option>
+                </select>
+            </div>
+            <div class="checkout-buttons">
+                <button class="cancel-checkout" id="cancelCheckoutBtn">Cancel</button>
+                <button class="confirm-checkout" id="confirmCheckoutBtn">Place Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="globalToast" class="notif-toast"></div>
+
+    <!-- JavaScript Files -->
+    <script src="utils.js"></script>
+    <script src="main.js"></script>
+    <script src="cart.js"></script>
+    <script src="checkout.js"></script>
+    <script src="settings.js"></script>
+
+    <script>
+        // Override renderCartItems for cart page
+        function renderCartItems() {
+            const container = document.getElementById('cartItemsContainer');
+            const totalDisplay = document.getElementById('cartTotal');
+            
+            if (!container) return;
+            
+            if (cartItems.length === 0) {
+                container.innerHTML = '<div class="empty-cart">🛒 Your cart is empty. <a href="shop.html" style="color:#7e3af2;">Shop now!</a></div>';
+                if (totalDisplay) totalDisplay.innerHTML = formatCurrency(0);
+                return;
+            }
+            
+            let html = '';
+            cartItems.forEach(item => {
+                const itemTotal = item.price * (item.quantity || 1);
+                html += `
+                    <div class="cart-item">
+                        <div>
+                            <div class="cart-item-title">${item.title}</div>
+                            <div class="cart-item-price">${formatCurrency(item.price)}</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <button class="remove-item" onclick="updateQuantity('${item.id}', -1)" style="background:#ede4ff; width:28px; height:28px; border-radius:50%;">-</button>
+                            <span style="font-weight:600;">${item.quantity || 1}</span>
+                            <button class="remove-item" onclick="updateQuantity('${item.id}', 1)" style="background:#ede4ff; width:28px; height:28px; border-radius:50%;">+</button>
+                            <button class="remove-item" onclick="removeFromCart('${item.id}')"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            if (totalDisplay) totalDisplay.innerHTML = formatCurrency(getCartTotal());
+        }
+
+        // Initialize cart page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCart();
+            renderCartItems();
+            
+            // Setup clear cart button
+            const clearBtn = document.getElementById('clearCartBtn');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', clearCart);
+            }
+        });
+    </script>
+</body>
+</html>
